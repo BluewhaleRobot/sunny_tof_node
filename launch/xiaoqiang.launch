@@ -1,0 +1,7 @@
+<launch>
+  <node name="sunny_tof_node1"          pkg="sunny_tof_node"  type="sunny_tof_node" output="screen" respawn="true" respawn_delay="1">
+    <remap from="//tof_scan" to="/scan" />
+  </node>
+  <node pkg="tf" type="static_transform_publisher" name="toflink_broadcaster" args="0.3 0 0.15 0 0 0  base_link  laser_tof 100"/>
+  <include file="$(find laser_filters)/examples/shadow_filter_a2.launch"/>
+</launch>
