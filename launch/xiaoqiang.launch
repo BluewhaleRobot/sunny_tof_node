@@ -3,5 +3,7 @@
     <remap from="//tof_scan" to="/scan" />
   </node>
   <node pkg="tf" type="static_transform_publisher" name="toflink_broadcaster" args="0.3 0 0.15 0 0 0  base_link  laser_tof 100"/>
+  <arg name="pi/2" value="1.5707963267948966" />
+  <node pkg="tf" type="static_transform_publisher" name="toflink_broadcaster2" args="0 0 0 $(arg pi/2) 0 $(arg pi/2)  laser_tof tof_pointcloud_link 100"/>
   <include file="$(find laser_filters)/examples/shadow_filter_a2.launch"/>
 </launch>

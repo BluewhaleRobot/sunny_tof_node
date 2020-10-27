@@ -39,6 +39,11 @@ void CloudToLaserScan(const pcl::PointCloud<pcl::PointXYZ> cloud_in,   //输入�
     float now_range,now_angle;                                                          //用于存储当前点的距离和方向
     for(size_t i=0; i<cloud_in.points.size(); ++i)                                     //遍历所有点，转换激光
     {
+      //if(cloud_in.points[i].y<0.1) continue;
+      // if(cloud_in.points[i].x<0.2&&cloud_in.points[i].x>-0.2&&cloud_in.points[i].z>0.5)
+      // {
+      //   if(cloud_in.points[i].y<0.15 && cloud_in.points[i].y>-0.2) continue;
+      // }
       now_range = hypot(cloud_in.points[i].z, cloud_in.points[i].x);
       now_angle = atan2(cloud_in.points[i].x, cloud_in.points[i].z);
 
